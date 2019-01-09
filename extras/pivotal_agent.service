@@ -1,0 +1,15 @@
+[Unit]
+Description=Pivotal Monitoring Agent for New Relic
+After=network.target network-online.target
+Wants=network-online.target
+
+[Service]
+User=ubuntu
+Environment=RUBY_OPTS=-rbundler/setup
+Environment=BUNDLE_GEMFILE=/opt/newrelic_pivotal_agent/Gemfile
+ExecStart=/opt/newrelic_pivotal_agent/pivotal_agent
+Restart=on-failure
+RestartSec=120s
+
+[Install]
+WantedBy=multi-user.target
