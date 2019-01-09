@@ -5,6 +5,7 @@ Wants=network-online.target
 
 [Service]
 User=ubuntu
+WorkingDirectory=/opt/newrelic_pivotal_agent
 Environment=RUBY_OPTS=-rbundler/setup
 Environment=BUNDLE_GEMFILE=/opt/newrelic_pivotal_agent/Gemfile
 ExecStart=/opt/newrelic_pivotal_agent/pivotal_agent
